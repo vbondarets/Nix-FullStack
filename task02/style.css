@@ -383,9 +383,70 @@ figure {
 #other_users_posts{
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    grid-auto-rows:300px;
+    grid-auto-rows:280px;
+    margin-top: 20px;
 }
-
+.other_user_post{
+    display: inline-block;
+    vertical-align:top;
+}
+.user_avatar{
+    display: inline-block;
+    width: 100px;
+    height: 100px;
+    /* background-color: rgb(213, 212,213); */
+    border-radius: 5px;
+    vertical-align:top;
+}
+.user_post{
+    border-radius: 5px;
+    vertical-align:top;
+    display: inline-block;
+    width: 325px;
+    margin-left: 20px;
+    background-color: #ffffff;
+    position: relative;
+    height: 250px;
+    border-bottom: 2px rgb(188, 188, 188) solid;
+    
+}
+.user_post::before{
+    content: "";
+    width: 0px;
+    height: 0px;
+    position: absolute;
+    border-left: 10px solid #ffffff;
+    border-right: 10px solid transparent;
+    border-top: 10px solid #ffffff;
+    border-bottom: 10px solid transparent;
+    right: 310px;
+    top: 20px;
+    transform: rotate(-45deg); 
+}
+#user_avatar1{
+    background-image: url("resources/avatar1.jpeg");
+    background-size: cover;
+}
+#user_avatar2{
+    background-image: url("resources/avatar2.jpeg");
+    background-size: cover;
+}
+#user_avatar3{
+    background-image: url("resources/avatar3.jpeg");
+    background-size: cover;
+}
+#user_avatar4{
+    background-image: url("resources/avatar4.jpeg");
+    background-size: cover;
+}
+#user_avatar5{
+    background-image: url("resources/avatar5.jpeg");
+    background-size: cover;
+}
+#user_avatar6{
+    background-image: url("resources/avatar6.jpeg");
+    background-size: cover;
+}
 
 
 
