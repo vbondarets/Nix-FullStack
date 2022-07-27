@@ -84,6 +84,7 @@ header{
 }
 #header_right{
     margin-left: 22.09%;
+    /* margin-left: auto; */
     width: 30%;
     height: 100%;
 }
@@ -398,6 +399,18 @@ figure {
     border-radius: 5px;
     vertical-align:top;
 }
+.post_likes_count{
+    font-family: 'Oswald', sans-serif;
+}
+.post_text{
+    font-family: 'Oswald', sans-serif;
+    color: rgba(0, 0, 0, 0.6);
+    height: 60%;
+}
+.post_comments_count{
+    font-family: 'Oswald', sans-serif;
+    color: rgba(0, 0, 0, 0.6);
+}
 .user_post{
     border-radius: 5px;
     vertical-align:top;
@@ -447,11 +460,64 @@ figure {
     background-image: url("resources/avatar6.jpeg");
     background-size: cover;
 }
+#user_post1{
+    background-image: url("resources/post_bg.jpeg");
+}
+#user_post1::before{
+    border-left: 10px solid rgb(201, 204, 214);
+    border-top: 10px solid rgb(201, 204, 214);
 
-
-
+}
+#user_post2{
+    background-image: url("resources/bg_post2.jpeg");
+    background-size: cover;
+}
+#user_post2::before{
+    border-left: 10px solid rgb(239, 236, 231);
+    border-top: 10px solid rgb(239, 236, 231);
+}
+#user_post3{
+    background-image: url("resources/bg_post3.jpeg");
+    background-size: cover;
+}
+#user_post3::before{
+    border-left: 10px solid rgb(248, 217, 228);
+    border-top: 10px solid rgb(248, 217, 228);
+}
+#user_post4{
+    background-image: url("resources/bg_post4.png");
+    background-size: 150%;
+    background-position: 90% 90%;
+}
+#user_post5{
+    background-image: url("resources/bg_post5.jpeg");
+    background-size: cover;
+}
+#user_post5::before{
+    border-left: 10px solid rgb(186, 186, 186);
+    border-top: 10px solid rgb(186, 186, 186);
+}
+#user_post6{
+    background-image: url("resources/bg_post6.jpeg");
+}
+#user_post6::before{
+    border-left: 10px solid rgb(0, 0, 0);
+    border-top: 10px solid rgb(0, 0, 0);
+}
 footer{
     font-family: 'Oswald', sans-serif;
-    height: 250px;
+    height: 150px;
     background-color: rgb(32, 32, 32);
+}
+#fifth_menu{
+    color: #ffffff4a;
+    margin-left: 5%;
+    width: 100%;
+    padding-top: 60px;
+}
+#fifth_menu button{
+    background-color: #ffffff00;
+    border: 0px;
+    color: #ffffff4a;
+    font-family: 'Oswald', sans-serif;
 }
