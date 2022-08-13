@@ -1,4 +1,4 @@
-# Nix Front/Back-end education programm
+# Nix FullStack education programm
 **Here you can see all previews of my tasks** <br/>
 <br/>
 **Task 01**<br/>
