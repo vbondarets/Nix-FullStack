@@ -1,0 +1,206 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <title>Лабораторная работа 1</title>
+  
+  <style>
+    body {
+      font-family: serif;
+      color: maroon;
+      background: silver;
+      font-size: 14px;
+    }
+    p {
+      padding: 5px;
+    }
+    #container{
+      margin:0 auto;
+      text-align: left;
+      width: 650px;
+    }
+    #header{
+      height: 60px;
+      color: #800000;
+    }
+    #header h1
+    {
+      padding:0;
+      margin:0;
+    }
+    #content{
+      background-color: #eee;
+      padding: 0 15px 10px 15px;
+
+    }
+    #footer{
+      background-color: #eee;
+      padding:15px;
+      clear: both;
+    }
+    h2 {
+      border-bottom:2px dotted #800000;
+      color: #800000;
+      padding-top: 10px;
+      margin-top: 0;
+    }
+    table {
+      border-collapse:collapse;
+      font-size:12px;
+      margin:0 20px 20px 20px;
+      width:500px;
+    }
+    th {
+      background-color: white;
+      color: maroon;
+      font-size: 14px;
+      font-weight: bold;
+      text-align: left;
+      padding: 3px 8px;
+    }
+    td {
+      padding: 6px;
+    }
+  </style>
+<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+	<script>
+
+	$(document).ready(function() {
+
+		//1
+		$('#books tr:nth-child(even)').css("background-color", "yellow");
+		let nameBook = $('#books tr:eq(2) > td:eq(1)').html();
+		$('#news p:eq(2) span').html(nameBook);
+
+
+		//2
+		$('#books tbody tr').each(function(e) {
+			let hrefStr = $(this).children('td').eq(0).text() + '.pdf';
+			$(this).children('td').eq(1).children('a').attr('href', hrefStr).text('купить');
+		});
+	});
+
+	
+	/** ЗАДАНИЕ 1
+		- В таблице с id="books" каждую четную строку выделите другим цветом
+		- В таблице с id="books" выберите полное название книги AJAX
+			(то есть, "Ajax в действии")
+			и добавьте его в <span> вместо строки "какое-то название"
+			(третий <p> в <div id="news">)
+	*/
+	
+	
+	/** ЗАДАНИЕ 2
+		- В таблице с id="books" выберите названия всех языков/технологий и для каждого языка
+			- сформируйте строку вида "название.pdf", например "ajax.pdf"
+			- добавьте как href элемента <a> с классом "doc"
+			- анкор "ссылка" поменяйте на "купить"
+			Например, у книги для "AJAX" ссылка должна выглядеть как:
+			<a class="doc" href="ajax.pdf">купить </a>
+	*/
+	
+	
+	</script>
+	
+</head>
+<body>
+  <div id="container">
+    <div id="header">
+      <h1>Современные технологии и учебные материалы</h1>
+    </div>
+    <div id="content">
+      <h2>
+        Добро пожаловать на страницу нашего каталога!
+      </h2>
+      <p id="intro">
+        В интернете полно списков «Лучших книг по программированию за всё время» и многие из них советуют разные (не всегда хорошие) книги. Один программист решил узнать, какие книги рекомендуют чаще всего. Для этого он взял все эти списки, проанализировал их и выложил свою мета-подборку из 25 книг. Делимся ей с вами.<br/>
+		</p>
+      <p id="disclaimer">
+        Предупреждение! Все книги, для которых есть перевод, мы привели на русском языке. Оригинальный список можно посмотреть <a href="https://www.best-books.dev/list/best-programming-books#25-most-recommended-programming-books-of-all-time">здесь</a>.
+      </p>
+		
+      <div id="news">
+        <h2>Последние новости</h2>
+        <p>
+          Беспрецедентное предложение «Супер магазина»: заказывайте две книги и получите скидку на третью! Знать бы какую?<br/>
+          <span class="hidden">Аж 20%!</span>
+        </p>
+        <p>
+			Поздравляем с Днем работника органов! Но каких?<br/>
+			<span class="hidden">Следственных!</span>
+		</p>
+		<p>
+			Скидка на книгу <span>какое-то название</span>
+		</p>
+      </div>
+      <div>
+        <h2 class="heading">Наши книги</h2>
+        <table class="data" id="books">
+          <thead>
+            <tr>
+              <th>Технология</th>
+              <th>Название</th>
+              <th>Авторы</th>
+              <th>Год</th>
+              <th>Цена</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>XML</td>
+              <td>XML. Никаких тайн и секретов! (<a class="doc" href="#">ссылка</a>)</td>
+              <td>Джим Кох, Кен Дэвидсон</td>
+              <td>2012</td>
+              <td>2 000</td>
+            </tr>
+			<tr>
+              <td>AJAX</td>
+              <td>Ajax в действии (<a class="doc" href="#">ссылка</a>)</td>
+              <td>Дейв Крейн, Эрик Паскарелло, Даррен Джеймс</td>
+              <td>2006</td>
+              <td>3 000</td>
+            </tr>
+			<tr>
+              <td>PHP</td>
+              <td>Изучаем PHP 7. Руководство по созданию интерактивных веб-сайтов (<a class="doc" href="#">ссылка</a>)</td>
+              <td>Дэвид Скляр</td>
+              <td>2017</td>
+              <td>1 000</td>
+            </tr>
+            <tr>
+              <td>Java</td>
+              <td>Эффективная Java (<a class="doc" href="#">ссылка</a>)</td>
+              <td>Джошуа Блох</td>
+              <td>2019</td>
+              <td>3 000</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div id="comment">
+        <h2>Ваш комментарий</h2>
+        <form id="form" onsubmit="return false">
+			Имя:<br />
+			<input type="text" /><br/>
+			Комментарий:<br/>
+			<textarea rows="5" cols="30" name="comment"></textarea><br />
+			<input type="button" value="Отправить" />
+		</form>
+      </div>
+      
+      <h2>Информация</h2>
+      <p id="info">
+        В ассортименте  более 1000 обучающих материалов для специалистов и начинающих: технические книги, энциклопедии и др.
+      </p>
+      
+    </div>
+
+    <div id="footer">
+      <p>
+        &copy; Все права зарезервированы, 2020 Супер книги
+      </p>
+    </div>
+  </div>
+</body>
+</html>
