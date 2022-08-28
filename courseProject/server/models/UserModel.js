@@ -25,6 +25,7 @@ class User extends Model{
     }
     find(id, login, email){
         if(id){
+            // console.log(id);
             return pool.execute(`SELECT * FROM user WHERE id=${id}`)
             .then(res =>{
                 if(res[0].length > 0){
@@ -35,12 +36,12 @@ class User extends Model{
                 }
             })
             .catch(err =>{
-                pool.end();
                 console.log(err);
                 return "NOT FOUND";
             });
         }
         else if(login){
+            // console.log(login);
             return pool.execute(`SELECT * FROM user WHERE login="${login}"`)
             .then(res =>{
                 if(res[0].length > 0){
@@ -51,12 +52,12 @@ class User extends Model{
                 }
             })
             .catch(err =>{
-                pool.end();
                 console.log(err);
                 return "NOT FOUND";
             });
         }
         else if(email){
+            // console.log(email);
             return pool.execute(`SELECT * FROM user WHERE email="${email}"`)
             .then(res =>{
                 if(res[0].length > 0){
@@ -67,7 +68,6 @@ class User extends Model{
                 }
             })
             .catch(err =>{
-                pool.end();
                 console.log(err);
                 return "NOT FOUND";
             });

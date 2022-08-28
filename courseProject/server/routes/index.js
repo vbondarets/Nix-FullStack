@@ -3,11 +3,13 @@ const router = new Router();
 
 const productRouter = require('./productRouter');
 const userRouter = require('./userRouter');
-const typeRouter = require('./typeRouter');
+const categoryRouter = require('./categoryRouter');
+const classRouter = require('./classRouter');
 
 router.use('/user', userRouter);
 router.use('/product', productRouter);
-router.use('/type', typeRouter);
+router.use('/categories', categoryRouter);
+router.use('/class', classRouter);
 
 
 module.exports = router;

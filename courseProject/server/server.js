@@ -7,7 +7,8 @@ const path = require('path');
 const fileUpload = require('express-fileupload');
 const cors = require('cors');
 const router = require('./routes/index');
-const errorHandler = require('./middleware/ErrorHanlingMinddleware')
+const errorHandler = require('./middleware/ErrorHanlingMinddleware');
+const ClientRouter = require('./clientRoutes');
 
 
 const app = express();
@@ -20,6 +21,7 @@ app.use(express.json());
 app.use(express.static(path.resolve(__dirname, 'static')))
 app.use(fileUpload({}));
 app.use('/api', router);
+app.use('/', ClientRouter);
 app.use(errorHandler);
 
 const start = async () =>{

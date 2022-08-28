@@ -1,30 +1,28 @@
 const Model = require('./model');
 const pool = require('./db');
 
-class ProductInfo extends Model {
-    constructor(product_id, title, description, id) {
-        super('product_info');
+class ProductPhoto extends Model {
+    constructor(img, product_id, id) {
+        super('product_photo');
+        this.img = img;
         this.product_id = product_id;
-        this.title = title;
-        this.description = description;
         this.id = id;
     }
     async create(){
-        return pool.execute(`INSERT INTO product_info (product_id, title, description) values (?, ?, ?)`, [this.product_id, this.title, this.description])
+        return pool.execute(`INSERT INTO product_photo (img, product_id) values (?, ?)`, [this.img, this.product_id])
         .then(resp => {
             this.id = resp[0].insertId;
-            console.log("ProductInfo Created");
+            console.log("ProductPhoto Created");
             return "Created";  
         })   
         .catch (err => {
-            pool.end();
             console.error(err);
             return err;
         });
         
     }
     getByProdId(id){
-        return pool.execute(`SELECT * FROM product_info WHERE product_id=${id}`)
+        return pool.execute(`SELECT * FROM product_photo WHERE product_id=${id}`)
         .then(resp => {
             if (resp[0].length > 0) {
                 return resp[0];
@@ -39,4 +37,4 @@ class ProductInfo extends Model {
         });
     }
 }
-module.exports = ProductInfo;
+module.exports = ProductPhoto;

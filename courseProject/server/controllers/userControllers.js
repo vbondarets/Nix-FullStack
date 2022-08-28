@@ -48,6 +48,8 @@ class UserController{
 
     async login(req, res, next){
         const {id, login, email, password} = req.body;
+        // console.log(login);
+        // console.log(email);
         const user = new User();
         user.find(id, login, email).then(resp =>{
             if(resp == 'NOT FOUND'){
@@ -62,15 +64,15 @@ class UserController{
                 return res.json({token});
             }
             else{
+                console.log(resp);
                 return next(ApiError.internal('Unknown error'));
             }
         });
     }
-
     async check(req, res, next){
         // res.json({user: req.user, res: "ok"});
-        const token = jwtGenerator(user.id, user.login, user.email, user.role);
-        return res.json({token});
+        const token = jwtGenerator(req.user.id, req.user.login, req.user.email, req.user.role);
+        return res.json({user: req.user , token: token});
     }
 }
 module.exports = new UserController();
