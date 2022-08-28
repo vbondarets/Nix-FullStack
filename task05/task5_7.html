@@ -1,0 +1,123 @@
+﻿<!doctype html>
+
+<html>
+<head>
+	<title>Пример простого меню</title>
+	<meta charset="utf-8">
+	<style type="text/css">
+		html, body { margin: 0px; padding: 0px; }
+		h1 { margin-top: 30px }
+		#menu a, .subMenu a {
+			display: block;
+			font-family: Arial, sans-serif;
+			font-size: 10pt;
+			font-weight: bold;
+			text-decoration: none;
+			color: black;
+			border: 1px solid #ddd;						
+		}
+		#menu a:hover, #menu a:active, .subMenu a:hover, .subMenu a:active {
+			background-color: #eee;
+			border-color: #999;
+		}		
+		#menu {
+			background-color: #ddd;
+			position: absolute;
+			top: 0px;
+			left: 0px;
+			width: 100%;
+		}
+		#menu a {
+			width: 100px;
+			float: left;
+			margin-left: 5px;
+			padding: 2px;
+		}
+		.subMenu {
+			width: 150px;
+			top: 26px;
+			background-color: #ddd;
+			border: 1px solid black;
+			position: absolute;
+			visibility: hidden;
+		}
+		.subMenu a {
+			display: block;
+			width: 90%;
+			margin: 0px;
+			padding: 4px;
+		}
+		#subMenu1 { left: 5px }
+		#subMenu2 { left: 125px }
+		#subMenu3 { left: 230px }
+		
+	</style>
+	<script type="text/javascript">
+		/*
+			1. Оптимизируйте код
+			2. Сделайте так, чтобы выпадающие элементы div не исчезали сразу.
+			3. Задание выполнить с помощью JS. Ршения с помощью CSS не использовать.
+		*/
+		let arrIdOfTimeout = [];
+		/*
+		**	Функция показывает меню с указанным ID
+		*/
+		function showMenu(objID){
+			clearTimeout(arrIdOfTimeout[objID]);
+			var obj = document.getElementById(objID);
+			obj.style.visibility = "visible";
+		}
+		/*
+		**	Функция убирает меню с указанным ID
+		*/
+		function hideMenu(objID){
+			arrIdOfTimeout[objID] = setTimeout(function(){
+				var obj = document.getElementById(objID);
+				obj.style.visibility = "";
+			}, 100)
+		}		
+	</script>
+</head>
+
+<body>
+	<h1>Пример простого меню</h1>
+	<div id="menu">
+		<a href="#" 
+			onmouseover="showMenu('subMenu1')"
+			onmouseout="hideMenu('subMenu1')">Модуль 1</a>
+		<a href="#" 
+			onmouseover="showMenu('subMenu2')"
+			onmouseout="hideMenu('subMenu2')">Модуль 2</a>
+		<a href="#" 
+			onmouseover="showMenu('subMenu3')"
+			onmouseout="hideMenu('subMenu3')">Модуль 3</a>
+	</div>
+
+	<div id="subMenu1" class="subMenu" 
+			onmouseover="showMenu('subMenu1')"
+			onmouseout="hideMenu('subMenu1')">
+		<a href="#">Цикл FOR</a>
+		<a href="#">Оператор IF</a>
+		<a href="#">Switch</a>	
+	</div>
+
+	<div id="subMenu2" class="subMenu" 
+			onmouseover="showMenu('subMenu2')"
+			onmouseout="hideMenu('subMenu2')">
+		<a href="#">Array</a>
+		<a href="#">Boolean</a>
+		<a href="#">Date</a>
+		<a href="#">Global</a>
+		<a href="#">Math</a>
+		<a href="#">Number</a>
+	</div>
+	<div id="subMenu3" class="subMenu" 
+			onmouseover="showMenu('subMenu3')"
+			onmouseout="hideMenu('subMenu3')">
+		<a href="#">Document</a>
+		<a href="#">History</a>
+		<a href="#">Location</a>
+		<a href="#">Navigator</a>
+	</div>
+</body>
+</html>

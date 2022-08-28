@@ -1,0 +1,89 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Открытие новых окон и запись содержания</title>
+<style type="text/css">
+	html{
+		background:#fff;
+		font:16px calibri, sans-serif;
+		cursor:default;
+	}
+	p {
+		float:left;
+		margin:0 10px 0 0;
+		padding:15px;
+	}
+	.p1{
+		background:#ccf;
+	}
+	.p2{
+		background:#fcc;
+	}
+	.p3{
+		background:#cfc;
+	}
+</style>
+<script type="text/javascript">
+name = 'Это я его открыло!';
+let wnd; /* НОВОЕ ОКНО! */
+
+function openWnd() {
+	/*	
+		1. Откройте новое окно со следующими параметрами:
+				ширина: 300, высота: 200
+				окно должно быть открыто строго по середине экрана
+		2. Передайте фокус созданному окну
+	*/
+	let left = (screen.width-300)/2;
+	let top = (screen.height - 200)/2
+
+	wnd = window.open("about:blank", "hello", `width=300,height=200,left=${left},top=${top}`);
+	wnd.focus();
+}
+
+function writeToDocument() {
+	/*
+		1. Запишите в документ дочернего окна содержание, 
+			состоящее из полного набора элементов, включая html, head, body, title
+		2. Включите в содержание элемент style с содержанием:
+				«html{background:#369;color:#fff;font:16px calibri, sans-serif;}»
+		3. Включите в содержание элемент p с содержанием «Текст параграфа»
+		4. Включите в содержание элемент script с содержанием «alert(opener.name)»
+	*/
+	let help = '</scrip'
+	let content = 
+	`<!DOCTYPE html>
+	<html lang="en">
+		<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Document</title>	
+		</head>
+		<style>html{background:#369;color:#fff;font:16px calibri, sans-serif;}</style>
+		<body>
+			<p>Текст параграфа</p>
+			<script>alert(opener.name)${help}t>
+		</body>
+	</html>`;
+	wnd.focus();
+	wnd.document.write(content);
+}
+
+function closeWnd() {
+	/*	
+		1. Проверьте, существует ли дочернее окно и не закрыто ли оно 
+		2. Если окно существует, то закройте его
+	*/
+	if(!wnd.closed) {
+		wnd.close();
+	}
+}
+</script>
+</head>
+	<body>
+		<p class="p1"><a href="javascript:openWnd();">Открыть окно</a></p>
+		<p class="p3"><a href="javascript:writeToDocument();">Заполнить окно</a></p>
+		<p class="p2"><a href="javascript:closeWnd();">Закрыть окно</a></p>
+	</body>
+</html>

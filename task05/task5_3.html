@@ -1,0 +1,64 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Генерация элементов списка</title>
+<link rel="stylesheet" type="text/css" href="css/form.css">
+<script type="text/javascript">
+/* Опишите функцию addYear(), которая аргумент:
+		flag - число, указывающее на место добавления нового элемента option:
+			0 - в начало списка
+			1 - в конец списка
+	1. Найдите форму
+	2. Определитесь, куда добавлять элемент: в конец, или в начало списка
+	3. Определите value последнего элемента списка и увеличьте или уменьшите его на 1
+	4. Создайте новый элемент списка
+	5. Кроссбраузерно добавьте созданный элемент в начало или конец списка
+*/
+	function addYear(flag){
+		let sel = document.forms[0].elements[1];
+		
+		if (flag === 1) {
+			let newOpt = Number(sel[sel.length - 1].value) + 1;
+			let option = document.createElement("option");
+			option.value = newOpt;
+			option.text = newOpt;
+			sel.add(option, sel.length);
+			option.selected = true;
+		}
+
+		else {
+			let newOpt = Number(sel[0].value) - 1;
+			let option = document.createElement("option");
+			option.value = newOpt;
+			option.text = newOpt;
+			sel.add(option, 0);
+			option.selected = true;
+		}
+	}
+
+</script>
+</head>
+<body>
+<form action="">
+	<fieldset>
+		<legend>Изменение элементов списка</legend>
+		<div class="block">
+			<label for="year"><span>Год рождения</span></label>
+			<div class="group">
+				<a href="javascript:addYear(0);">+</a>
+				<select name="year" id="year">
+					<option value="1970">1970</option>
+					<option value="1971">1971</option>
+					<option value="1972">1972</option>
+					<option value="1973">1973</option>
+					<option value="1974">1974</option>
+					<option value="1975">1975</option>
+				</select>
+				<a href="javascript:addYear(1);">+</a>
+			</div>
+		</div>
+	</fieldset>
+</form>
+</body>
+</html>

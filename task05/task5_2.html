@@ -1,0 +1,75 @@
+﻿<!doctype html>
+<html>
+<head>
+	<title>Проверка формы перед отправкой</title>
+	<meta charset="utf-8">
+	<style type="text/css">
+		form div input { border-style: solid; border-color: #999 }
+		a{background:silver;color:black;border:3px groove silver;text-decoration: none;font-weight:bold}
+		div.button{margin-top:10px}
+	</style>
+	<script type="text/javascript">
+		/*
+			Создайте и опишите функцию checkForm(), которая должна вызываться перед отправкой формы
+			В функции необходимо проверить, все ли поля заполнены
+			Если все поля заполнены, то отправить форму
+			Если хотя бы одно поле не заполнено:
+				- выдать alert() с предупреждением
+				- изменить цвет рамки пустого поля на красный
+				- данные не отправлять!
+		*/
+
+		function checkForm() {
+			let form = document.forms[0];
+			let flag = true;
+
+			for (let i = 1; i < form.elements.length; i++) {
+				if(form.elements[i].value === '') {
+					form.elements[i].style.border = '2px solid red';
+					flag = false;
+				}	
+			}
+
+			if (flag) {
+				form.submit();
+			}
+			else {
+				alert('Input all fields!!!');
+			}
+		}
+		
+	</script>	
+</head>
+
+<body>
+	<h1>Проверка формы перед отправкой</h1>
+	<form id="myForm" name="myForm" action="">
+		<fieldset>
+			<legend>Форма</legend>
+			<div>
+				<label for="txt1">Поле 1</label>
+				<input type="text" name="p1" id="txt1">
+			</div>
+			<div>
+				<label for="txt2">Поле 2</label>
+				<input type="text" name="p2" id="txt2">
+			</div>
+			<div>
+				<label for="txt3">Поле 3</label>
+				<input type="text" name="p3" id="txt3">
+			</div>
+			<div>
+				<label for="txt4">Поле 4</label>
+				<input type="text" name="p4" id="txt4">
+			</div>
+			<div>
+				<label for="txt5">Поле 5</label>
+				<input type="text" name="p5" id="txt5">
+			</div>
+			<div class="button">
+			<a href="javascript:checkForm()">Передать форму</a>
+			</div>
+		</fieldset>
+	</form>
+</body>
+</html>

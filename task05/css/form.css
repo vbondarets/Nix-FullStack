@@ -1,0 +1,134 @@
+html, select, textarea, button, input{
+	font:16px calibri, sans-serif;
+}
+input[type="file"]{
+	font-size:14px;
+}
+form{
+	float:left;
+	margin:0;
+	padding:0;
+	min-width:340px;
+}
+fieldset{
+	margin:0;
+	padding:0 10px 12px 0;
+	border:3px solid #eee;
+	border-radius:10px;
+	-moz-border-radius:10px;
+}
+legend{
+	margin:0 0 0 20px;
+	padding:0 10px;
+	color:#f60;
+}
+form .block{
+	clear:both;
+	overflow:hidden;
+	padding:15px 2px 2px 160px;
+}
+form .block label{
+	white-space:nowrap;
+}
+form .block label span{
+	float:left;
+	width:9em;
+	margin:0 0 0 -160px;
+	text-align:right;
+	color:#567;
+}
+textarea{
+	overflow:auto;
+	height:5em;
+	margin:0;
+}
+textarea,input[type="text"],input[type="password"]{
+	width:300px;
+	padding:4px;
+	outline:0;
+	border:1px solid #7f9db9;
+	border-radius:4px;
+	-moz-border-radius:4px;
+}
+input[type="text"],input[type="password"]{
+	margin:-10px 0 0;
+	font-size:24px;
+}
+textarea:focus,input[type="text"]:focus,input[type="password"]:focus{
+	border-width:3px;
+}
+textarea:focus{
+	margin:-2px;
+}
+input[type="text"]:focus,input[type="password"]:focus{
+	margin:-12px -2px -2px;
+}
+input[type="image"]{
+	margin:-11px 0 -11px -3px;
+	padding:0;
+	outline:0;
+}
+a{
+	overflow:visible;
+	margin:0 10px 0 0;
+	padding:3px 6px;
+	outline:0;
+	text-decoration:none;
+	color:#fff;
+	border-radius:6px;
+	-moz-border-radius:6px;
+	border:0;
+	text-transform:uppercase;
+	background-color:#369;
+	background-image:radial-gradient(50% -125px, circle cover, rgba(100%, 100%, 100%, .2) 120px, rgba(100%, 100%, 100%, .35) 140px, rgba(0, 0, 0, 0) 142px, rgba(0, 0, 0, 0)), linear-gradient(top -90deg, rgba(100%, 100%, 100%, .3), rgba(100%, 100%, 100%, .4) 15%, rgba(100%, 100%, 100%, .1) 75%, rgba(100%, 100%, 100%, 0) 100%);
+	background-image:-moz-radial-gradient(50% -125px, circle cover, rgba(100%, 100%, 100%, .2) 120px, rgba(100%, 100%, 100%, .35) 140px, rgba(0, 0, 0, 0) 142px, rgba(0, 0, 0, 0)), -moz-linear-gradient(top -90deg, rgba(100%, 100%, 100%, .3), rgba(100%, 100%, 100%, .4) 15%, rgba(100%, 100%, 100%, .1) 75%, rgba(100%, 100%, 100%, 0) 100%);
+	background-image:-webkit-gradient(radial, 50% -125, 0, 50% -125, 150, from(rgba(100%, 100%, 100%, .2)), to(rgba(0, 0, 0, 0)), color-stop(93%, rgba(100%, 100%, 100%, .35)), color-stop(94%, rgba(0, 0, 0, 0))), -webkit-gradient(linear, 0 0, 0 100%, from(rgba(100%, 100%, 100%, .3)), color-stop(15%, rgba(100%, 100%, 100%, .4)), color-stop(75%, rgba(100%, 100%, 100%, .1)), to(rgba(100%, 100%, 100%, 0)));
+	box-shadow:0 0 5px rgba(40%, 60%, 80%, .5);
+	-moz-box-shadow:0 0 5px rgba(40%, 60%, 80%, .5);
+	transition:background-color .3s ease-out;
+	-webkit-transition:background-color .3s ease-out;
+	-moz-transition:background-color .3s ease-out;
+	text-shadow:0 0 3px rgba(0, 0, 0, .4);
+}
+.group button{
+	margin:0;
+}
+button + select{
+	margin: 0 10px;
+}
+button:hover,button:focus{
+	background-color:#036;
+	box-shadow:0 0 5px rgba(20%, 40%, 60%, .5);
+	-moz-box-shadow:0 0 5px rgba(20%, 40%, 60%, .5);
+}
+button.special{
+	float:left;
+	margin:0 0 0 -160px;
+}
+button[type="button"]{
+	background-color:#696;
+	box-shadow:0 0 5px rgba(20%, 60%, 40%, .5);
+	-moz-box-shadow:0 0 5px rgba(20%, 60%, 40%, .5);
+}
+button[type="button"]:hover,button[type="button"]:focus{
+	background-color:#063;
+	box-shadow:0 0 5px rgba(0%, 40%, 20%, .5);
+	-moz-box-shadow:0 0 5px rgba(0%, 40%, 20%, .5);
+}
+button[disabled]{
+	background-color:#999;
+	box-shadow:0 0 5px rgba(20%, 20%, 20%, .5);
+	-moz-box-shadow:0 0 5px rgba(20%, 20%, 20%, .5);
+}
+.group{
+	overflow:hidden;
+	margin:-3px 0 0;
+}
+.group label{
+	margin:0 10px 0 0;
+	vertical-align:middle;
+}
+.group input{
+	margin:0 5px 3px 0;
+	vertical-align:middle;
+}

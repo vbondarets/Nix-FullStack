@@ -1,0 +1,69 @@
+﻿<!doctype html>
+
+<html>
+<head>
+	<title>Структура DOM</title>
+	<meta charset="utf-8">
+	<script type="text/javascript">
+		/*
+			Создайте и опишите функцию showDOM(), которая открывает новое окно браузера 
+				и выводит на экран структуру текущего документа, вызывая
+				рекурсивную функцию showChildNodes(node, doc)
+			1. Откройте новое окно
+			2. Отрисуйте в новом окне открывающие тэги "<html>" и "<body>" (document.write!)
+			3. Вызовите вышеописанную	функцию showChildNodes(), передав в качестве параметров:
+				- корневой элемент документа (document.documentElement) или тело документа (document.body)
+				- ссылку на объект Document нового окна
+			4. Отрисуйте в новом окне закрывающие тэги "</html>" и "</body>"	
+		*/
+
+		/*
+		 Создайте и опишите рекурсивную функцию showChildNodes(node, doc), 
+			которая отрисовывает дочерние узлы текущего узла.
+			Функция должна принимать два аргумента:
+				- node: текущий узел
+				- doc: ссылку на объект Document нового окна, в который производится вывод
+			1. Проверьте тип текущего узла
+				1.1 Если это текстовый узел - отрисуйте его содержание
+				1.2 Если это узел-элемент - выведите его название и ...
+					вызовите эту функцию для каждого из дочерних узлов	
+		*/
+
+		function showDOM() {
+			newWin = window.open();
+			newWin.document.write('<html><body>');
+			showChildNodes(document.body, newWin.document);
+			newWin.document.write('</body></html>')
+		}
+
+		function showChildNodes(node, doc) {
+			if (node.nodeType === 1) {
+				doc.write('<p>' + node.nodeName + '</p>');
+
+				for (let i = 0; i < node.childNodes.length; i++) {
+					showChildNodes(node.childNodes[i], doc);
+				}
+			}
+
+			else {
+				doc.write('<p>' + node.nodeValue + '</p>');
+			}
+		}
+		
+		
+	</script>
+</head>
+
+<body>
+	<h1>Структура DOM</h1>
+	<div>
+		<h2>Вывод структуры DOM</h2>
+		<p>Этот код открывает новое окно и выводит в него структуру текущего документа</p>
+	</div>
+	<div>
+		<h2>Запуск кода</h2>
+		<p>Для запуска кода щелкните <a href="javascript:showDOM()">здесь</a></p>
+	</div>
+
+</body>
+</html>
