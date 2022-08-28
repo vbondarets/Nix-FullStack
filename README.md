@@ -6,3 +6,7 @@
 <br/>
 **Task 02**<br/>
 ![Task preview](https://iili.io/S0pSff.png)<br/>
+**Course Work**<br/>
+![Task preview](https://iili.io/45qtn4.png)<br/>
+
+
